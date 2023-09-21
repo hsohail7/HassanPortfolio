@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassan's Portfolio</title>
+    <link rel="stylesheet" href="styles.css"> <!--CSS file -->
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #111;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Navigation bar styles */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Hero Section styles */
+        #hero {
+            background-image: url('Pictures/Programing.jpg'); 
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 150px 0;
+            position: relative;
+        }
+
+        #hero h1 {
+            font-size: 36px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        /* About Me Section styles */
+        #about {
+            background-color: #333;
+            padding: 50px;
+            text-align: left;
+            margin: 0 10%; /* Adjusted margin helps the about me section width */
+        }
+
+        .about-heading {
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 75%;
+            text-align: justify;
+        }
+
+        #about h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* CSS for the image in the "About Me" section */
+        .align-right {
+            float: right;
+            margin-left: 100px; /* Adjust the margin-left to move the image more to the right */
+            margin-top: -225px; /* Adjust the margin-top to push the image further up */
+            margin-bottom: 20px; /* Add margin at the bottom to separate from the text */
+            border-radius: 20px;
+        }
+
+        /* Clearfix to clear the float */
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Work Experience Section styles */
+        #experience {
+            background-color: #444;
+            padding: 50px;
+            text-align: left;
+            margin: 0 10%; /* Adjusted margin to start at 3/4 */
+        }
+
+        .experience-heading {
+            text-align: center;
+        }
+
+        #experience h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* CSS for the "Projects" section */
+        #projects {
+            background-color: #1c1c1c;
+            padding: 50px;
+            text-align: center;
+            margin: 0 10%;
+        }
+
+        #projects h2 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+            gap: 20px; /* Adjust the gap between projects */
+        }
+
+        .project {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: left;
+            opacity: 0; /* Start with zero opacity */
+            animation: fadeIn 1s ease-in-out forwards; /* Apply the fadeIn animation */
+            transition: transform 0.3s ease-in-out; /* Add a smooth transition for the transform property */
+        }
+
+        .project:hover {
+            transform: translate(5px, -5px); /* Move the project 5px to the right and 5px up on hover */
+        }
+
+        .project h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .project img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Define the fadeIn animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0; /* Start with zero opacity */
+            }
+            to {
+                opacity: 1; /* End with full opacity */
+            }
+        }
+
+        .project p {
+            color: #000; /* Set the text color to black */
+        }
+
+        /* Contact Me Section styles */
+        #contact {
+            background-color: #111;
+            padding: 50px;
+            text-align: center;
+            margin: 0 10%; /* Adjusted margin to start at 3/4 */
+        }
+
+        #contact h2 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        #contact form {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        #contact label {
+            color: #fff;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #contact input[type="text"],
+        #contact input[type="email"],
+        #contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #contact button {
+            background-color: #ff5722;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Keyframe animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Button styles */
+        #Resume {
+            text-align: center;
+            padding: 50px;
+        }
+
+        #Resume .btn-cta {
+            background-color: #ff5722;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline from the link */
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #Resume .btn-cta:hover {
+            background-color: #ff4500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#Resume">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h1>Welcome to My Portfolio</h1>
+    </section>
+
+    <section id="about">
+        <h1>About Me</h1>
+        <div class="about-content">
+            <p>Hello, I am Hassan Sohail. I'm a second-year software engineering student at Western University, and I'm passionate about leveraging technology to solve real-world problems. Alongside my academic pursuits, I've been actively involved in various campus clubs, including Western Aero, Western PSA, Western MSA, Western Aero Design Team, and Western Quantum Club. These experiences have not only enriched my university life but also honed my teamwork and leadership skills. In terms of software development, I have a strong foundation in several programming languages, including Java, JavaScript, C++, HTML, CSS, and Flutter with Dart. Additionally, I have experience working with PHP. My journey as a software enthusiast has allowed me to develop a diverse skill set, which I am eager to apply to exciting projects and contribute to innovative solutions in the ever-evolving tech world. Thank you for visiting my portfolio, and I look forward to sharing my projects and experiences with you!</p>
+        </div>
+        <img src="Pictures/Hassan.jpg" alt="Hassan's Portrait" width="200" class="align-right">
+    </section>
+
+    <section id="experience">
+        <div class="experience-heading">
+            <h2>Work Experience</h2>
+        </div>
+        <!-- SK Solutions -->
+        <div class="job">
+            <h3>SK Solutions | Founder & CEO</h3>
+            <p>2023 (Apr - Present)</p>
+            <ul>
+                <li>Designed and developed a user-friendly CRM software to help businesses manage their inquiries, which resulted in a 34% increase in productivity and streamlined processes.</li>
+                <li>Implemented features such as lead tracking, task management, and customer communication to improve efficiency and enhance customer relationships, resulting in positive feedback from users.</li>
+            </ul>
+        </div>
+        <!-- Muslim Wellness Network -->
+        <div class="job">
+            <h3>Muslim Wellness Network | Camp Counselor</h3>
+            <p>2023 (May - Aug)</p>
+            <ul>
+                <li>As a Camp Counselor at Muslim Wellness, I encouraged creative problem-solving in engineering-related activities, fostering a sense of community and well-being among participants. This experience enhanced my leadership and communication skills while promoting holistic health and inclusivity.</li>
+            </ul>
+        </div>
+        <!-- E-commerce Store Manager -->
+        <div class="job">
+            <h3>E-commerce Store Manager | Founder & CEO</h3>
+            <p>2022 (May - Present)</p>
+            <ul>
+                <li>Implemented features such as lead tracking, task management, and customer communication to improve efficiency and enhance customer relationships, resulting in positive feedback from users.</li>
+            </ul>
+        </div>
+        <!-- Social Media Manager Agency -->
+        <div class="job">
+            <h3>Social Media Manager Agency | Founder & CEO</h3>
+            <p>2022 (May - Present)</p>
+            <ul>
+                <li>Founded and managed a successful social media management agency, helping businesses increase their revenue and customer engagement through tailored social media strategies.</li>
+                <li>Leveraged a range of techniques, including content creation, community management, and paid advertising, to generate impressive results for clients. Through my efforts, I directly contributed to increased sales and revenue for businesses in a variety of industries.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="Resume">
+        <a href="Resume/Hassan_Resume.pdf" target="_blank" class="btn-cta">View Resume</a>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <!-- Create a grid for projects -->
+        <div class="project-grid">
+            <!-- Project 1: Car Game (Unreal Engine 4) -->
+            <div class="project">
+                <h3>Car Game (Unreal Engine 4)</h3>
+                <img src="Pictures/2.jpg.png" alt="Car Game Screenshot 2">
+                <img src="Pictures/3.jpg.png" alt="Car Game Screenshot 3">
+                <p>Step into the world of game development with my solo project, the Car Game in Unreal Engine 4. Developed as a final exam project, this immersive car racing game introduces players to stunning graphics, lifelike physics, and a challenging array of tracks. It serves as a testament to my journey into the realm of game development, marking my first-ever solo venture in this captivating field.</p>
+            </div>
+            <!-- Project 2: Ion Thruster -->
+            <div class="project">
+                <h3>Ion Thruster</h3>
+                <img src="Pictures/ion2.jpg" alt="Ion Thruster Image 1">
+                <img src="Pictures/ion3.jpg" alt="Ion Thruster Image 3">
+                <p>The Ion Thruster project represents my fervor for innovation. With a vision of powering a future flying car experiment, this project dives into ion propulsion technology. It reflects my unwavering passion for pioneering groundbreaking solutions. The goal? To revolutionize transportation through the relentless pursuit of excellence.</p>
+            </div>
+            <!-- Project 3: Chess Game (Java) -->
+            <div class="project">
+                <h3>Chess Game (Java)</h3>
+                <img src="Pictures/chess2.png" alt="Chess Game Screenshot 2">
+                <img src="Pictures/chess7.jpg" alt="Chess Game Screenshot 3">
+                <p>Created during the COVID-19 pandemic, this Java-based Chess Game allowed me to explore chess strategy and implement unique paths for each chess piece. It reflects my curiosity and problem-solving skills.</p>
+            </div>
+            <!-- Project 4: Web Scraping Tool -->
+            <div class="project">
+                <h3>Web Scraping Tool</h3>
+                <img src="Pictures/webscraper.jpg" alt="Web Scraping Tool Screenshot">
+                <p>This project combines a web scraping tool, utilizing Python's Beautiful Soup library, with a versatile calculator. It represents my interest in data extraction from websites and my experimentation during the pandemic.</p>
+            </div>
+            <!-- Project 5: Daily Reminder Tool -->
+            <div class="project">
+                <h3>Daily Reminder Tool</h3>
+                <img src="Pictures/dailyreminder.jpg" alt="Daily Reminder Tool Screenshot">
+                <p>The Daily Reminder Tool is a handy application for setting and managing daily tasks, appointments, and reminders. It helps users stay organized and never miss important events.</p>
+            </div>
+            <!-- Project 6: ERP Software (SK Solution) -->
+            <div class="project">
+                <h3>ERP Software (SK Solution)</h3>
+                <img src="Pictures/erp1.jpg" alt="CRM Software Screenshot 1">
+                <img src="Pictures/erp8.jpeg" alt="CRM Software Screenshot 2">
+                <img src="Pictures/erp9.jpeg" alt="CRM Software Screenshot 3">
+                <p>The ERP Software developed for SK Solutions is a powerful tool for businesses to manage customer relationships efficiently. It includes lead tracking, task management, and effective communication features.</p>
+            </div>
+            <!-- Project 7: Song Visualizer -->
+            <div class="project">
+                <h3>Song Visualizer</h3>
+                <img src="Pictures/visualizer.jpg.png" alt="Song Visualizer Screenshot">
+                <p>The Song Visualizer is a captivating project that allows you to explore the magic behind music. Developed using Processing in Java, it visualizes musical volume data, transforming it into mesmerizing visual patterns. This project helped me unravel the art of audio data visualization, a fascinating exploration of music's hidden dimensions.</p>
+            </div>
+            <!-- Project 8: Calculator GUI (Java) -->
+            <div class="project">
+                <h3>Calculator GUI (Java)</h3>
+                <img src="Pictures/calc.jpg.png" alt="Calculator GUI Screenshot">
+                <p>Following the creation of the Chess Game, I ventured into the world of graphical user interfaces with the Calculator GUI project. Crafted during the COVID-19 pandemic, it's a testament to my ongoing quest for knowledge and my fascination with GUI-based software development. This project adds a touch of practicality to my coding journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Hassan's Portfolio</p>
+    </footer>
+</body>
+</html>
